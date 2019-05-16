@@ -1,0 +1,26 @@
+body {
+  font-family: sans-serif;
+}
+
+.square {
+  height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 100px;
+  border-radius: 3px;
+  text-align: center;
+  vertical-align: middle;
+  border: black dashed 3px;
+}
+
+p {
+  padding-top: 20px;
+}
+
+.red {
+  background-color: #DB4C40;
+}
+
+.blue {
+  background-color: #087E8B;
+}

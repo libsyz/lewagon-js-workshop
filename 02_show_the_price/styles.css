@@ -1,0 +1,36 @@
+.body {
+  background-color: #F5F5F5;
+}
+
+.wrapper {
+  margin-top: 100px;
+  margin-left: 500px;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+.item-list {
+  background-color: #CEE7E6;
+  margin: 0px;
+  list-style: none;
+  height: 140px;
+  padding-right: 30px;
+}
+
+.item {
+  cursor: pointer;
+}
+
+.price-tag {
+  padding-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #EFE9AE;
+  height: 90px;
+}
+
+
+
+
+

@@ -1,0 +1,23 @@
+body {
+  font-family: sans-serif;
+}
+
+.filter-list {
+  list-style: none;
+}
+
+.item {
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  margin-right: 10px;
+  border: solid black 2px;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+}
+
+.green {
+  color: green;
+  border: solid green 2px;
+}
