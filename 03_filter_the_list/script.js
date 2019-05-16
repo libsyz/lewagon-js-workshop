@@ -38,12 +38,15 @@ function removeGreenFromLetters() {
 
 // Ok That's cool - But now we need to do some logic work.
 // The list of names needs to be filtered
-// and if we filter list of names, we might lose the full list as we
-// are modifying it dynamically.
+// The problem is that modifying the element directly will lead to loss of data,
+// as the HTML object will no longer be the same after the first time you filter.
+// Users will be forced to refresh the page if they want to filter twice
+
 // that means
 
-// 1) we gotta save the list of names in a variable. I gotta crawl through
-// the names listOfNames and push the names into an array.
+// 1) we gotta save the list of names in a variable. Let's crawl through
+// the listOfNames HTML element and push just the names (the innerText)
+// into an array.
 
 let namesArray = [];
 allNames.forEach((name) => {
@@ -52,9 +55,10 @@ allNames.forEach((name) => {
 
 // The lines above when the page is loaded. Now our names are safe.
 
-// 2) letters need to listen to another event that filters against the variable
-// and injects brand new HTML on the list. I might not need listOfNames
-// and actually need the element that holds the list.
+// 2) the filter letters need to listen to another event that
+// filters the names stored in namesArray
+// and injects brand new HTML on the document. I might not need listOfNames
+// for this and actually need the element that holds the list.
 
 const listOfNamesHolder = document.querySelector('.name-list');
 
@@ -67,14 +71,15 @@ listOfLetters.forEach((letter) => {
   })
 })
 
-// 4) I need a function that does the heavy lifting.
+// 4) Now I need to write function that does the heavy lifting.
+
 // To filter effectively, I know that the first letter
 // of a given name needs to match the letter in the filter.
 
 // once I get the filtered names, I will
 // empty the html in listOfNamesHolder
-// iterate through the filtered names
-// add HTML elements to the list containing the name.
+// iterate through the filtered names I just got and
+// add new HTML elements to the list containing the name.
 
 function filterNameList(letter) {
   let filteredNames = namesArray.filter((name) => {
@@ -82,7 +87,6 @@ function filterNameList(letter) {
   })
 
   listOfNamesHolder.innerHTML = '';
-
   filteredNames.forEach((name) => {
     listOfNamesHolder.innerHTML += `<li> ${name} </li>`
   })
